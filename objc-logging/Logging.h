@@ -8,6 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-@interface objc_logging : NSObject
-
-@end
+#import "LoggingManager.h"
+#import "Logger.h"

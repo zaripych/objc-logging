@@ -8,12 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		325F909814AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909714AE6FBF00C14EE9 /* Cocoa.framework */; };
-		325F90A214AE6FBF00C14EE9 /* objc_logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90A114AE6FBF00C14EE9 /* objc_logging.m */; };
 		325F90AA14AE6FBF00C14EE9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F90A914AE6FBF00C14EE9 /* SenTestingKit.framework */; };
 		325F90AB14AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909714AE6FBF00C14EE9 /* Cocoa.framework */; };
 		325F90AE14AE6FBF00C14EE9 /* objc-logging.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909414AE6FBF00C14EE9 /* objc-logging.dylib */; };
 		325F90B414AE6FBF00C14EE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 325F90B214AE6FBF00C14EE9 /* InfoPlist.strings */; };
 		325F90B714AE6FBF00C14EE9 /* objc_loggingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90B614AE6FBF00C14EE9 /* objc_loggingTests.m */; };
+		325F90D514AE704400C14EE9 /* Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C014AE704400C14EE9 /* Logging.h */; };
+		325F90D614AE704400C14EE9 /* LoggingCompiledPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C114AE704400C14EE9 /* LoggingCompiledPattern.h */; };
+		325F90D714AE704400C14EE9 /* LoggingCompiledPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90C214AE704400C14EE9 /* LoggingCompiledPattern.m */; };
+		325F90D814AE704400C14EE9 /* LoggingConsoleTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C314AE704400C14EE9 /* LoggingConsoleTarget.h */; };
+		325F90D914AE704400C14EE9 /* LoggingConsoleTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90C414AE704400C14EE9 /* LoggingConsoleTarget.m */; };
+		325F90DA14AE704400C14EE9 /* LoggingBufferTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C514AE704400C14EE9 /* LoggingBufferTarget.h */; };
+		325F90DB14AE704400C14EE9 /* LoggingBufferTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90C614AE704400C14EE9 /* LoggingBufferTarget.m */; };
+		325F90DC14AE704400C14EE9 /* LoggingDefaultInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C714AE704400C14EE9 /* LoggingDefaultInfoProvider.h */; };
+		325F90DD14AE704400C14EE9 /* LoggingDefaultInfoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90C814AE704400C14EE9 /* LoggingDefaultInfoProvider.m */; };
+		325F90DE14AE704400C14EE9 /* LoggingInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90C914AE704400C14EE9 /* LoggingInfoProvider.h */; };
+		325F90DF14AE704400C14EE9 /* LoggingLevelFilterOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90CA14AE704400C14EE9 /* LoggingLevelFilterOptions.h */; };
+		325F90E014AE704400C14EE9 /* LoggingLevelFilterOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90CB14AE704400C14EE9 /* LoggingLevelFilterOptions.m */; };
+		325F90E114AE704400C14EE9 /* LoggingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90CC14AE704400C14EE9 /* LoggingManager.h */; };
+		325F90E214AE704400C14EE9 /* LoggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90CD14AE704400C14EE9 /* LoggingManager.m */; };
+		325F90E314AE704400C14EE9 /* LoggingMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90CE14AE704400C14EE9 /* LoggingMessage.h */; };
+		325F90E414AE704400C14EE9 /* LoggingMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90CF14AE704400C14EE9 /* LoggingMessage.m */; };
+		325F90E514AE704400C14EE9 /* LoggingRule.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90D014AE704400C14EE9 /* LoggingRule.h */; };
+		325F90E614AE704400C14EE9 /* LoggingRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90D114AE704400C14EE9 /* LoggingRule.m */; };
+		325F90E714AE704400C14EE9 /* LoggingTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90D214AE704400C14EE9 /* LoggingTarget.h */; };
+		325F90E814AE704400C14EE9 /* LoggingTargetOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90D314AE704400C14EE9 /* LoggingTargetOptions.h */; };
+		325F90E914AE704400C14EE9 /* LoggingTargetOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90D414AE704400C14EE9 /* LoggingTargetOptions.m */; };
+		325F90EF14AE727700C14EE9 /* Exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90EB14AE727700C14EE9 /* Exceptions.h */; };
+		325F90F014AE727700C14EE9 /* Exceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90EC14AE727700C14EE9 /* Exceptions.m */; };
+		325F90F114AE727700C14EE9 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F90ED14AE727700C14EE9 /* Logger.h */; };
+		325F90F214AE727700C14EE9 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90EE14AE727700C14EE9 /* Logger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,15 +56,38 @@
 		325F909A14AE6FBF00C14EE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		325F909B14AE6FBF00C14EE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		325F909C14AE6FBF00C14EE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		325F909F14AE6FBF00C14EE9 /* objc-logging-Prefix.pch */ = {isa = PBXFileReference; path = "objc-logging-Prefix.pch"; sourceTree = "<group>"; };
-		325F90A014AE6FBF00C14EE9 /* objc_logging.h */ = {isa = PBXFileReference; path = objc_logging.h; sourceTree = "<group>"; };
-		325F90A114AE6FBF00C14EE9 /* objc_logging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_logging.m; sourceTree = "<group>"; };
+		325F909F14AE6FBF00C14EE9 /* objc-logging-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "objc-logging-Prefix.pch"; sourceTree = "<group>"; };
 		325F90A814AE6FBF00C14EE9 /* objc-loggingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "objc-loggingTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		325F90A914AE6FBF00C14EE9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		325F90B114AE6FBF00C14EE9 /* objc-loggingTests-Info.plist */ = {isa = PBXFileReference; path = "objc-loggingTests-Info.plist"; sourceTree = "<group>"; };
+		325F90B114AE6FBF00C14EE9 /* objc-loggingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "objc-loggingTests-Info.plist"; sourceTree = "<group>"; };
 		325F90B314AE6FBF00C14EE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		325F90B514AE6FBF00C14EE9 /* objc_loggingTests.h */ = {isa = PBXFileReference; path = objc_loggingTests.h; sourceTree = "<group>"; };
+		325F90B514AE6FBF00C14EE9 /* objc_loggingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objc_loggingTests.h; sourceTree = "<group>"; };
 		325F90B614AE6FBF00C14EE9 /* objc_loggingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_loggingTests.m; sourceTree = "<group>"; };
+		325F90C014AE704400C14EE9 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		325F90C114AE704400C14EE9 /* LoggingCompiledPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingCompiledPattern.h; sourceTree = "<group>"; };
+		325F90C214AE704400C14EE9 /* LoggingCompiledPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingCompiledPattern.m; sourceTree = "<group>"; };
+		325F90C314AE704400C14EE9 /* LoggingConsoleTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingConsoleTarget.h; sourceTree = "<group>"; };
+		325F90C414AE704400C14EE9 /* LoggingConsoleTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingConsoleTarget.m; sourceTree = "<group>"; };
+		325F90C514AE704400C14EE9 /* LoggingBufferTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingBufferTarget.h; sourceTree = "<group>"; };
+		325F90C614AE704400C14EE9 /* LoggingBufferTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingBufferTarget.m; sourceTree = "<group>"; };
+		325F90C714AE704400C14EE9 /* LoggingDefaultInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingDefaultInfoProvider.h; sourceTree = "<group>"; };
+		325F90C814AE704400C14EE9 /* LoggingDefaultInfoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingDefaultInfoProvider.m; sourceTree = "<group>"; };
+		325F90C914AE704400C14EE9 /* LoggingInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingInfoProvider.h; sourceTree = "<group>"; };
+		325F90CA14AE704400C14EE9 /* LoggingLevelFilterOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingLevelFilterOptions.h; sourceTree = "<group>"; };
+		325F90CB14AE704400C14EE9 /* LoggingLevelFilterOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingLevelFilterOptions.m; sourceTree = "<group>"; };
+		325F90CC14AE704400C14EE9 /* LoggingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingManager.h; sourceTree = "<group>"; };
+		325F90CD14AE704400C14EE9 /* LoggingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingManager.m; sourceTree = "<group>"; };
+		325F90CE14AE704400C14EE9 /* LoggingMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingMessage.h; sourceTree = "<group>"; };
+		325F90CF14AE704400C14EE9 /* LoggingMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingMessage.m; sourceTree = "<group>"; };
+		325F90D014AE704400C14EE9 /* LoggingRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingRule.h; sourceTree = "<group>"; };
+		325F90D114AE704400C14EE9 /* LoggingRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingRule.m; sourceTree = "<group>"; };
+		325F90D214AE704400C14EE9 /* LoggingTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingTarget.h; sourceTree = "<group>"; };
+		325F90D314AE704400C14EE9 /* LoggingTargetOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingTargetOptions.h; sourceTree = "<group>"; };
+		325F90D414AE704400C14EE9 /* LoggingTargetOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingTargetOptions.m; sourceTree = "<group>"; };
+		325F90EB14AE727700C14EE9 /* Exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exceptions.h; sourceTree = "<group>"; };
+		325F90EC14AE727700C14EE9 /* Exceptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exceptions.m; sourceTree = "<group>"; };
+		325F90ED14AE727700C14EE9 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		325F90EE14AE727700C14EE9 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +154,28 @@
 		325F909D14AE6FBF00C14EE9 /* objc-logging */ = {
 			isa = PBXGroup;
 			children = (
-				325F90A014AE6FBF00C14EE9 /* objc_logging.h */,
-				325F90A114AE6FBF00C14EE9 /* objc_logging.m */,
+				325F90EA14AE713900C14EE9 /* Targets */,
+				325F90EB14AE727700C14EE9 /* Exceptions.h */,
+				325F90EC14AE727700C14EE9 /* Exceptions.m */,
+				325F90ED14AE727700C14EE9 /* Logger.h */,
+				325F90EE14AE727700C14EE9 /* Logger.m */,
+				325F90C014AE704400C14EE9 /* Logging.h */,
+				325F90C114AE704400C14EE9 /* LoggingCompiledPattern.h */,
+				325F90C214AE704400C14EE9 /* LoggingCompiledPattern.m */,
+				325F90C714AE704400C14EE9 /* LoggingDefaultInfoProvider.h */,
+				325F90C814AE704400C14EE9 /* LoggingDefaultInfoProvider.m */,
+				325F90C914AE704400C14EE9 /* LoggingInfoProvider.h */,
+				325F90CA14AE704400C14EE9 /* LoggingLevelFilterOptions.h */,
+				325F90CB14AE704400C14EE9 /* LoggingLevelFilterOptions.m */,
+				325F90CC14AE704400C14EE9 /* LoggingManager.h */,
+				325F90CD14AE704400C14EE9 /* LoggingManager.m */,
+				325F90CE14AE704400C14EE9 /* LoggingMessage.h */,
+				325F90CF14AE704400C14EE9 /* LoggingMessage.m */,
+				325F90D014AE704400C14EE9 /* LoggingRule.h */,
+				325F90D114AE704400C14EE9 /* LoggingRule.m */,
+				325F90D214AE704400C14EE9 /* LoggingTarget.h */,
+				325F90D314AE704400C14EE9 /* LoggingTargetOptions.h */,
+				325F90D414AE704400C14EE9 /* LoggingTargetOptions.m */,
 				325F909E14AE6FBF00C14EE9 /* Supporting Files */,
 			);
 			path = "objc-logging";
@@ -141,6 +208,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		325F90EA14AE713900C14EE9 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				325F90C314AE704400C14EE9 /* LoggingConsoleTarget.h */,
+				325F90C414AE704400C14EE9 /* LoggingConsoleTarget.m */,
+				325F90C514AE704400C14EE9 /* LoggingBufferTarget.h */,
+				325F90C614AE704400C14EE9 /* LoggingBufferTarget.m */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -148,6 +226,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325F90D514AE704400C14EE9 /* Logging.h in Headers */,
+				325F90D614AE704400C14EE9 /* LoggingCompiledPattern.h in Headers */,
+				325F90D814AE704400C14EE9 /* LoggingConsoleTarget.h in Headers */,
+				325F90DA14AE704400C14EE9 /* LoggingBufferTarget.h in Headers */,
+				325F90DC14AE704400C14EE9 /* LoggingDefaultInfoProvider.h in Headers */,
+				325F90DE14AE704400C14EE9 /* LoggingInfoProvider.h in Headers */,
+				325F90DF14AE704400C14EE9 /* LoggingLevelFilterOptions.h in Headers */,
+				325F90E114AE704400C14EE9 /* LoggingManager.h in Headers */,
+				325F90E314AE704400C14EE9 /* LoggingMessage.h in Headers */,
+				325F90E514AE704400C14EE9 /* LoggingRule.h in Headers */,
+				325F90E714AE704400C14EE9 /* LoggingTarget.h in Headers */,
+				325F90E814AE704400C14EE9 /* LoggingTargetOptions.h in Headers */,
+				325F90EF14AE727700C14EE9 /* Exceptions.h in Headers */,
+				325F90F114AE727700C14EE9 /* Logger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +341,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				325F90A214AE6FBF00C14EE9 /* objc_logging.m in Sources */,
+				325F90D714AE704400C14EE9 /* LoggingCompiledPattern.m in Sources */,
+				325F90D914AE704400C14EE9 /* LoggingConsoleTarget.m in Sources */,
+				325F90DB14AE704400C14EE9 /* LoggingBufferTarget.m in Sources */,
+				325F90DD14AE704400C14EE9 /* LoggingDefaultInfoProvider.m in Sources */,
+				325F90E014AE704400C14EE9 /* LoggingLevelFilterOptions.m in Sources */,
+				325F90E214AE704400C14EE9 /* LoggingManager.m in Sources */,
+				325F90E414AE704400C14EE9 /* LoggingMessage.m in Sources */,
+				325F90E614AE704400C14EE9 /* LoggingRule.m in Sources */,
+				325F90E914AE704400C14EE9 /* LoggingTargetOptions.m in Sources */,
+				325F90F014AE727700C14EE9 /* Exceptions.m in Sources */,
+				325F90F214AE727700C14EE9 /* Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
