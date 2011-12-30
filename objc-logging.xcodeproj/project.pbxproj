@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		325F909814AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909714AE6FBF00C14EE9 /* Cocoa.framework */; };
+		325F90A214AE6FBF00C14EE9 /* objc_logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90A114AE6FBF00C14EE9 /* objc_logging.m */; };
+		325F90AA14AE6FBF00C14EE9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F90A914AE6FBF00C14EE9 /* SenTestingKit.framework */; };
+		325F90AB14AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909714AE6FBF00C14EE9 /* Cocoa.framework */; };
+		325F90AE14AE6FBF00C14EE9 /* objc-logging.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 325F909414AE6FBF00C14EE9 /* objc-logging.dylib */; };
+		325F90B414AE6FBF00C14EE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 325F90B214AE6FBF00C14EE9 /* InfoPlist.strings */; };
+		325F90B714AE6FBF00C14EE9 /* objc_loggingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 325F90B614AE6FBF00C14EE9 /* objc_loggingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		325F90AC14AE6FBF00C14EE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 325F908B14AE6FBF00C14EE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 325F909314AE6FBF00C14EE9;
+			remoteInfo = "objc-logging";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		325F909414AE6FBF00C14EE9 /* objc-logging.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "objc-logging.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		325F909714AE6FBF00C14EE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		325F909A14AE6FBF00C14EE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		325F909B14AE6FBF00C14EE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		325F909C14AE6FBF00C14EE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		325F909F14AE6FBF00C14EE9 /* objc-logging-Prefix.pch */ = {isa = PBXFileReference; path = "objc-logging-Prefix.pch"; sourceTree = "<group>"; };
+		325F90A014AE6FBF00C14EE9 /* objc_logging.h */ = {isa = PBXFileReference; path = objc_logging.h; sourceTree = "<group>"; };
+		325F90A114AE6FBF00C14EE9 /* objc_logging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_logging.m; sourceTree = "<group>"; };
+		325F90A814AE6FBF00C14EE9 /* objc-loggingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "objc-loggingTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		325F90A914AE6FBF00C14EE9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		325F90B114AE6FBF00C14EE9 /* objc-loggingTests-Info.plist */ = {isa = PBXFileReference; path = "objc-loggingTests-Info.plist"; sourceTree = "<group>"; };
+		325F90B314AE6FBF00C14EE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		325F90B514AE6FBF00C14EE9 /* objc_loggingTests.h */ = {isa = PBXFileReference; path = objc_loggingTests.h; sourceTree = "<group>"; };
+		325F90B614AE6FBF00C14EE9 /* objc_loggingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_loggingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		325F909114AE6FBF00C14EE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325F909814AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		325F90A414AE6FBF00C14EE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325F90AA14AE6FBF00C14EE9 /* SenTestingKit.framework in Frameworks */,
+				325F90AB14AE6FBF00C14EE9 /* Cocoa.framework in Frameworks */,
+				325F90AE14AE6FBF00C14EE9 /* objc-logging.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		325F908914AE6FBF00C14EE9 = {
+			isa = PBXGroup;
+			children = (
+				325F909D14AE6FBF00C14EE9 /* objc-logging */,
+				325F90AF14AE6FBF00C14EE9 /* objc-loggingTests */,
+				325F909614AE6FBF00C14EE9 /* Frameworks */,
+				325F909514AE6FBF00C14EE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		325F909514AE6FBF00C14EE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				325F909414AE6FBF00C14EE9 /* objc-logging.dylib */,
+				325F90A814AE6FBF00C14EE9 /* objc-loggingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		325F909614AE6FBF00C14EE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				325F909714AE6FBF00C14EE9 /* Cocoa.framework */,
+				325F90A914AE6FBF00C14EE9 /* SenTestingKit.framework */,
+				325F909914AE6FBF00C14EE9 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		325F909914AE6FBF00C14EE9 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				325F909A14AE6FBF00C14EE9 /* AppKit.framework */,
+				325F909B14AE6FBF00C14EE9 /* CoreData.framework */,
+				325F909C14AE6FBF00C14EE9 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		325F909D14AE6FBF00C14EE9 /* objc-logging */ = {
+			isa = PBXGroup;
+			children = (
+				325F90A014AE6FBF00C14EE9 /* objc_logging.h */,
+				325F90A114AE6FBF00C14EE9 /* objc_logging.m */,
+				325F909E14AE6FBF00C14EE9 /* Supporting Files */,
+			);
+			path = "objc-logging";
+			sourceTree = "<group>";
+		};
+		325F909E14AE6FBF00C14EE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				325F909F14AE6FBF00C14EE9 /* objc-logging-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		325F90AF14AE6FBF00C14EE9 /* objc-loggingTests */ = {
+			isa = PBXGroup;
+			children = (
+				325F90B514AE6FBF00C14EE9 /* objc_loggingTests.h */,
+				325F90B614AE6FBF00C14EE9 /* objc_loggingTests.m */,
+				325F90B014AE6FBF00C14EE9 /* Supporting Files */,
+			);
+			path = "objc-loggingTests";
+			sourceTree = "<group>";
+		};
+		325F90B014AE6FBF00C14EE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				325F90B114AE6FBF00C14EE9 /* objc-loggingTests-Info.plist */,
+				325F90B214AE6FBF00C14EE9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		325F909214AE6FBF00C14EE9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		325F909314AE6FBF00C14EE9 /* objc-logging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 325F90BA14AE6FBF00C14EE9 /* Build configuration list for PBXNativeTarget "objc-logging" */;
+			buildPhases = (
+				325F909014AE6FBF00C14EE9 /* Sources */,
+				325F909114AE6FBF00C14EE9 /* Frameworks */,
+				325F909214AE6FBF00C14EE9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "objc-logging";
+			productName = "objc-logging";
+			productReference = 325F909414AE6FBF00C14EE9 /* objc-logging.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		325F90A714AE6FBF00C14EE9 /* objc-loggingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 325F90BD14AE6FBF00C14EE9 /* Build configuration list for PBXNativeTarget "objc-loggingTests" */;
+			buildPhases = (
+				325F90A314AE6FBF00C14EE9 /* Sources */,
+				325F90A414AE6FBF00C14EE9 /* Frameworks */,
+				325F90A514AE6FBF00C14EE9 /* Resources */,
+				325F90A614AE6FBF00C14EE9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				325F90AD14AE6FBF00C14EE9 /* PBXTargetDependency */,
+			);
+			name = "objc-loggingTests";
+			productName = "objc-loggingTests";
+			productReference = 325F90A814AE6FBF00C14EE9 /* objc-loggingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		325F908B14AE6FBF00C14EE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = DZ;
+			};
+			buildConfigurationList = 325F908E14AE6FBF00C14EE9 /* Build configuration list for PBXProject "objc-logging" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 325F908914AE6FBF00C14EE9;
+			productRefGroup = 325F909514AE6FBF00C14EE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				325F909314AE6FBF00C14EE9 /* objc-logging */,
+				325F90A714AE6FBF00C14EE9 /* objc-loggingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		325F90A514AE6FBF00C14EE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325F90B414AE6FBF00C14EE9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		325F90A614AE6FBF00C14EE9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		325F909014AE6FBF00C14EE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325F90A214AE6FBF00C14EE9 /* objc_logging.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		325F90A314AE6FBF00C14EE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325F90B714AE6FBF00C14EE9 /* objc_loggingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		325F90AD14AE6FBF00C14EE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 325F909314AE6FBF00C14EE9 /* objc-logging */;
+			targetProxy = 325F90AC14AE6FBF00C14EE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		325F90B214AE6FBF00C14EE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				325F90B314AE6FBF00C14EE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		325F90B814AE6FBF00C14EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		325F90B914AE6FBF00C14EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		325F90BB14AE6FBF00C14EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		325F90BC14AE6FBF00C14EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		325F90BE14AE6FBF00C14EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
+				INFOPLIST_FILE = "objc-loggingTests/objc-loggingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		325F90BF14AE6FBF00C14EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
+				INFOPLIST_FILE = "objc-loggingTests/objc-loggingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		325F908E14AE6FBF00C14EE9 /* Build configuration list for PBXProject "objc-logging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				325F90B814AE6FBF00C14EE9 /* Debug */,
+				325F90B914AE6FBF00C14EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		325F90BA14AE6FBF00C14EE9 /* Build configuration list for PBXNativeTarget "objc-logging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				325F90BB14AE6FBF00C14EE9 /* Debug */,
+				325F90BC14AE6FBF00C14EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		325F90BD14AE6FBF00C14EE9 /* Build configuration list for PBXNativeTarget "objc-loggingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				325F90BE14AE6FBF00C14EE9 /* Debug */,
+				325F90BF14AE6FBF00C14EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 325F908B14AE6FBF00C14EE9 /* Project object */;
+}
