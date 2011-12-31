@@ -50,8 +50,8 @@ Here is code sample:
     // create logger:
     Logger * logger = [manager getLogger:@"AAA"];
     //
-    if ( [logger isLogLevelEnabled:level] ) {
-         [logger logWithLevel:level 
+    if ( [logger isLogLevelEnabled:LogMessageLevelInfo] ) {
+         [logger logWithLevel:LogMessageLevelInfo 
                    andMessage:@"Hello there the world of logs!"];
     }
     // shorter syntax:
