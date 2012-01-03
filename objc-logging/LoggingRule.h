@@ -19,7 +19,7 @@
 /**
     Regex defines scope of loggers the rule should be applied to.
  */
-@property (nonatomic, strong) NSString * loggerNamePattern;
+@property (nonatomic, readwrite, retain) NSString * loggerNamePattern;
 
 /**
     The list of target names to use with the rule.

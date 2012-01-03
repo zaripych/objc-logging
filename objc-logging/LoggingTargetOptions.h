@@ -20,11 +20,11 @@
 /**
     Defines target name.
  */
-@property (nonatomic, strong) NSString * name;
+@property (nonatomic, readwrite, retain) NSString * name;
 
 /**
     Defines output message pattern.
  */
-@property (nonatomic, strong) NSString * messagePattern;
+@property (nonatomic, readwrite, retain) NSString * messagePattern;
 
 @end
