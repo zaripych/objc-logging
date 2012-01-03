@@ -9,6 +9,8 @@
 #import "LoggingManager.h"
 #import "LoggingCompiledPattern.h"
 #import "LoggingConsoleTarget.h"
+#import "LoggingLevelFilterOptions.h"
+#import "LoggingDefaultInfoProvider.h"
 
 @interface TargetConfiguration : NSObject {
 @private
@@ -286,7 +288,7 @@ static LoggingManager * _defaultManager = nil;
     }
     [_lock lock];
     @try {
-        [_levels setMinimumLevel:level];
+        [(LoggingLevelFilterOptions*)_levels setMinimumLevel:level];
     } @finally {
         [_lock unlock];
     }
@@ -299,7 +301,7 @@ static LoggingManager * _defaultManager = nil;
     }
     [_lock lock];
     @try {
-        [_levels setLevel:level shouldBeLogged:flag];
+        [(LoggingLevelFilterOptions*)_levels setLevel:level shouldBeLogged:flag];
     } @finally {
         [_lock unlock];
     }
@@ -532,7 +534,7 @@ static LoggingManager * _defaultManager = nil;
             THROW(NSInvalidArgumentException, 
                   @"Level parameter is out of range of valid levels.");
         }
-        return [_levels isLogLevelEnabled:level];
+        return [(LoggingLevelFilterOptions*)_levels isLogLevelEnabled:level];
     } @catch (NSException * exc) {
         if ( _throwExceptions ) {
             @throw exc;
@@ -550,7 +552,7 @@ static LoggingManager * _defaultManager = nil;
             THROW(NSInvalidArgumentException, 
                   @"Level parameter is out of range of valid levels.");
         }
-        if ( [_levels isLogLevelEnabled:level] ) {
+        if ( [(LoggingLevelFilterOptions*)_levels isLogLevelEnabled:level] ) {
             //
             if ( message == nil ) {
                 message = @"";

@@ -12,10 +12,8 @@
 #import "LoggingInfoProvider.h"
 #import "Exceptions.h"
 #import "Logger.h"
-#import "LoggingLevelFilterOptions.h"
 #import "LoggingRule.h"
 #import "LoggingTargetOptions.h"
-#import "LoggingDefaultInfoProvider.h"
 
 /**
     Factory for loggers, controls how messages are logged, provides interface
@@ -23,7 +21,7 @@
     targets.
  */
 @interface LoggingManager : NSObject<LoggerProxy> {
-    LoggingLevelFilterOptions * _levels;
+    id _levels;
     NSMutableDictionary * _targetsByName;
     NSMutableDictionary * _targetsConfiguration;
     NSMutableDictionary * _loggersByName;
