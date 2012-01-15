@@ -39,7 +39,7 @@
 		329B141914B3865F00AC4D92 /* LoggingTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B140014B3865F00AC4D92 /* LoggingTarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329B141A14B3865F00AC4D92 /* LoggingTargetOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B140114B3865F00AC4D92 /* LoggingTargetOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329B141B14B3865F00AC4D92 /* LoggingTargetOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B140214B3865F00AC4D92 /* LoggingTargetOptions.m */; };
-		329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D93 /* LoggingFileTarget.h */; };
+		329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D93 /* LoggingFileTarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329B141B14B3865F00AC4D96 /* LoggingFileTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D95 /* LoggingFileTarget.m */; };
 		329B141B14B3865F00AC4D99 /* LoggingFileTargetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D98 /* LoggingFileTargetTests.m */; };
 /* End PBXBuildFile section */
@@ -244,11 +244,11 @@
 				329B141714B3865F00AC4D92 /* LoggingRule.h in Headers */,
 				329B141914B3865F00AC4D92 /* LoggingTarget.h in Headers */,
 				329B141A14B3865F00AC4D92 /* LoggingTargetOptions.h in Headers */,
+				329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */,
 				329B140314B3865F00AC4D92 /* Exceptions.h in Headers */,
 				329B140A14B3865F00AC4D92 /* LoggingCompiledPattern.h in Headers */,
 				329B140E14B3865F00AC4D92 /* LoggingDefaultInfoProvider.h in Headers */,
 				329B141114B3865F00AC4D92 /* LoggingLevelFilterOptions.h in Headers */,
-				329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
