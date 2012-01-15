@@ -23,6 +23,7 @@ Supported targets:
 
  - LoggingConsoleTarget - output to console/terminal
  - LoggingBufferTarget - output to internal buffer which can be used in UI 
+ - LoggingFileTarget - output to one or more file.
 
 Here is code sample:
     
@@ -60,4 +61,40 @@ Here is code sample:
     }
     //
 
+Next sample is file output:
+    
+    // initialization code:
+    LoggingFileTarget * target = [[LoggingFileTarget alloc] initWithFileNamePattern:@"~/Library/Logs/YourApp/{level}-log.txt"];
+    target.limitFileSize = NO;
+    //
+    LoggingTargetOptions * options = [[LoggingTargetOptions alloc] init];
+    options.name = @"file-output";
+    options.messagePattern = @"{level} {date:format=HH\\:mm\\:ss} {logger} {message}{end-of-line}";
+    //
+    [manager addTarget:target
+           withOptions:options];
+    //
+    LoggingRule * rule = [[LoggingRule alloc] init];
+    rule.loggerNamePattern = @".*";
+    [rule.targetNames addObject:@"file-output"];
+    
+    // usage code:
+    
+    static Logger * logger = nil;
+    
+    - (id) init {
+        self = [super init];
+        if ( self ) {
+            // getLogger helps to get loggers one time (singleton):
+            getLogger(&logger, @"LoggerName");
+        }
+        return self;
+    }
+    
+    - (void) someMethod {
+        if ( [logger isInfoEnabled] ) {
+            [logger logInfo:@"Hello there! %@", @"This is parameter"];
+        }
+    }
+    
 Good luck!
