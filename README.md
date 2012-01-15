@@ -16,8 +16,19 @@ WHY?
 
 Don't ask, just wanted to share.
 
+Whats next?
+-----------
+
+ - I want configuration file support
+ - more unit tests are required
+ - add more info providers (library feature which extends logging patterns and variables you can use there) for example:
+   - {bundle-path} - this variable will contain application bundle path, so we can use it as part of output file path
+   - {thread-id}
+   - more ...
+
 How do YOU use that
 -------------------
+
 
 Supported targets:
 
