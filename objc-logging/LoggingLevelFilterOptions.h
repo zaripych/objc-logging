@@ -13,7 +13,7 @@
     Incapsulates information on logging levels.
  */
 @interface LoggingLevelFilterOptions : NSObject {
-    BOOL _enabledLevels[LogMessageLevelFatal + 1];
+    BOOL _enabledLevels[LogMessageLevelMaximum + 1];
 }
 
 /**

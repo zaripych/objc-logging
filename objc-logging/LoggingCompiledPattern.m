@@ -177,11 +177,44 @@
                 //
                 cursor = result.range.location + result.range.length;
             }
+            if ( cursor != pattern.length ) {
+                // process last:
+                LoggingPatternPart * simple = [[LoggingPatternPart alloc] init];
+                simple.simpleString = [pattern substringWithRange:
+                                       NSMakeRange(cursor, pattern.length - cursor)];
+                [_parts addObject:simple];
+            }
         } else {
-            [_parts addObject:pattern];
+            LoggingPatternPart * simple = [[LoggingPatternPart alloc] init];
+            simple.simpleString = pattern;
+            [_parts addObject:simple];
         }
     }
     return self;
+}
+
+- (BOOL)containsVariable:(NSString *)variableName {
+    for (LoggingPatternPart * part in _parts) {
+        if ( part.simpleString == nil ) {
+            if ([part.variableName isEqualToString:variableName]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+- (BOOL) containsOneOfVariables:(NSArray*) variableNames {
+    for (LoggingPatternPart * part in _parts) {
+        if ( part.simpleString == nil ) {
+            for (NSString * varName in variableNames) {
+                if ([part.variableName isEqualToString:varName]) {
+                    return YES;
+                }
+            }
+        }
+    }
+    return NO;
 }
 
 - (NSString*) buildMessage:(NSDictionary*) variables {

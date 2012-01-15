@@ -25,7 +25,7 @@
         THROW(NSInvalidArgumentException, 
               @"Level parameter is out of range of valid levels.");
     }
-    for (int i = 0; i < LogMessageLevelFatal; ++i) {
+    for (int i = 0; i < LogMessageLevelMaximum + 1; ++i) {
         if ( i >= level ) {
             _enabledLevels[i] = YES;
         } else {

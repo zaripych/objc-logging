@@ -17,19 +17,33 @@
     id<LoggingTarget> _target;
     LoggingCompiledPattern * _pattern;
     NSString * _name;
+    BOOL _infoProvidersAware;
 }
 
 @property (nonatomic, strong) id<LoggingTarget> target;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) LoggingCompiledPattern * pattern;
+@property (nonatomic, readonly) BOOL infoProvidersAware;
 
 @end
 
 @implementation TargetConfiguration
 
-@synthesize target = _target;
 @synthesize name = _name;
 @synthesize pattern = _pattern;
+
+- (id <LoggingTarget>)target {
+    return _target;
+}
+
+- (void)setTarget:(id <LoggingTarget>)target {
+    _infoProvidersAware = [(id)target conformsToProtocol:@protocol(LoggingInfoProvidersAware)];
+    _target = target;
+}
+
+- (BOOL)infoProvidersAware {
+    return _infoProvidersAware;
+}
 
 @end
 
@@ -91,7 +105,28 @@
 @end
 
 @implementation LoggingManager {
-    
+@private
+    id _levels;
+    NSMutableDictionary * _targetsByName;
+    NSMutableDictionary * _targetsConfiguration;
+    NSMutableDictionary * _loggersByName;
+    NSMutableArray * _rules;
+    NSMutableArray * _providers;
+    NSMutableDictionary * _providersByName;
+    NSMutableArray * _messages;
+    NSThread * _loggingThread;
+    BOOL _loggingThreadSleeping;
+    BOOL _shouldLog;
+    BOOL _needsReconfiguration;
+    BOOL _needsRefreshProviders;
+    NSCondition * _loggingThreadCondition;
+    NSLock * _lock;
+    const NSString * _levelsAsStrings[LogMessageLevelMaximum + 1];
+    const NSString * _levelsAsStringsLower[LogMessageLevelMaximum + 1];
+    BOOL _throwExceptions;
+#ifdef DEBUG
+    double _timeTakesToLog;
+#endif
 }
 
 - (id) init {
@@ -118,6 +153,9 @@
         _levelsAsStrings[LogMessageLevelWarning] = @"WARNING";
         _levelsAsStrings[LogMessageLevelError] = @"ERROR";
         _levelsAsStrings[LogMessageLevelFatal] = @"FATAL";
+        for (int i = 0; i < LogMessageLevelMaximum + 1; ++i ) {
+            _levelsAsStringsLower[i] = [_levelsAsStrings[i] lowercaseString];
+        }
     }
     return self;
 }
@@ -157,7 +195,7 @@ static LoggingManager * _defaultManager = nil;
                 [_defaultManager addInfoProvider:
                     [[LoggingDefaultInfoProvider alloc] init]];
                 //
-                [_defaultManager setMinimumLevel:LogMessageLevelInfo];
+                [_defaultManager setMinimumLevel:LogMessageLevelTrace];
                 // for debugging:
                 //[LoggingManager configure];
             }
@@ -203,10 +241,17 @@ static LoggingManager * _defaultManager = nil;
         [_lock unlock];
     }
     //
-    [self addInfoProvider:
-     [[LoggingDefaultInfoProvider alloc] init]];
-    [self setMinimumLevel:LogMessageLevelInfo];
+    [self addInfoProvider:[[LoggingDefaultInfoProvider alloc] init]];
+    [self setMinimumLevel:LogMessageLevelTrace];
     //
+
+#ifdef DEBUG
+    if ( _timeTakesToLog > 0.0f ) {
+        NSLog(@"Time took to log one message for last configuration: %f ticks.", (float)_timeTakesToLog);
+    }
+    _timeTakesToLog = 0.0f;
+#endif
+    
 }
 
 - (void) addTarget:(id<LoggingTarget>) target 
@@ -347,15 +392,15 @@ static LoggingManager * _defaultManager = nil;
         THROW(NSInvalidArgumentException,
               @"Name string is not initialized or empty.");
     }
+    LoggerConfiguration * configuration = nil;
     Logger * logger = nil;
     [_lock lock];
     @try {
-        logger = [_loggersByName objectForKey:name];
-        if ( logger == nil ) {
+        configuration = [_loggersByName objectForKey:name];
+        if ( configuration == nil ) {
             logger = [[Logger alloc] initWithProxy:self
                                            andName:name];
-            LoggerConfiguration * configuration = 
-                [[LoggerConfiguration alloc] init];
+            configuration = [[LoggerConfiguration alloc] init];
             configuration.name = name;
             configuration.logger = logger;
             //
@@ -366,7 +411,7 @@ static LoggingManager * _defaultManager = nil;
     } @finally {
         [_lock unlock];
     }
-    return logger;
+    return configuration.logger;
 }
 
 - (void) setThrowExceptions:(BOOL) throwExceptions {
@@ -374,6 +419,10 @@ static LoggingManager * _defaultManager = nil;
 }
 
 - (void) doLogMessages:(id) object {
+    //
+#ifdef DEBUG
+    UInt32 count = TickCount();
+#endif
     //
     if ( _needsReconfiguration ) {
         [_lock lock];
@@ -405,34 +454,58 @@ static LoggingManager * _defaultManager = nil;
         //
         variables = [[NSMutableDictionary alloc] init];
         //
-        for (LogMessageWrapper * wrapper in messages) {
-            LogMessage * message = wrapper.message;
+        for (LogMessageWrapper * messageWrapper in messages) {
+            LogMessage * message = messageWrapper.message;
             //
-            NSMutableDictionary * variablesStatic = wrapper.variables;
+            NSMutableDictionary * variablesStatic = messageWrapper.variables;
             if ( variablesStatic == nil ) {
                 variablesStatic = variables;
             }
             [variablesStatic setObject:message.message forKey:@"message"];
             [variablesStatic setObject:@"\n" forKey:@"end-of-line"];
-            [variablesStatic setObject:wrapper.configuration.logger.name 
+            [variablesStatic setObject:messageWrapper.configuration.logger.name
                                 forKey:@"logger"];
+            [variablesStatic setObject:_levelsAsStringsLower[message.level]
+                                forKey:@"level-lower-case"];
             [variablesStatic setObject:_levelsAsStrings[message.level]
                                 forKey:@"level"];
             //
-            LoggerConfiguration * conf = wrapper.configuration;
-            for (TargetConfiguration * target in [conf targets]) {
-                NSString * messageFromPattern = 
-                    [[target pattern] buildMessageUsingProviders: providersByVarName
-                                                    andVariables: variablesStatic
-                                                      andMessage:message];
-                message.messageBuild = messageFromPattern;
-                //
-                [target.target logMessage:message];
+            LoggerConfiguration * conf = messageWrapper.configuration;
+            for (TargetConfiguration * targetConfiguration in [conf targets]) {
+                @try {
+                    NSString * messageFromPattern =
+                        [[targetConfiguration pattern] buildMessageUsingProviders: providersByVarName
+                                                        andVariables: variablesStatic
+                                                          andMessage:message];
+                    message.messageBuild = messageFromPattern;
+                    //
+                    id target = targetConfiguration.target;
+                    if (targetConfiguration.infoProvidersAware) {
+                        id<LoggingInfoProvidersAware> providersAware = target;
+                        [providersAware useInfoProviders:providersByVarName
+                                               withCache:variablesStatic];
+                    }
+                    //
+                    [targetConfiguration.target logMessage:message];
+                } @catch(id exc) {
+                    NSLog(@"ERROR: There are some problem in logging thread when logging into target '%@'. Exception information follows: %@",
+                        targetConfiguration.name, exc);
+                    if ( _throwExceptions ) {
+                        @throw exc;
+                    }
+                }
             }
             // clear variables for different messages
             [variables removeAllObjects];
         }
     }
+#ifdef DEBUG
+    if ( _timeTakesToLog > 0.0f ) {
+        _timeTakesToLog = _timeTakesToLog + ((TickCount() - count) / (double)messages.count) / 2.0f;
+    } else {
+        _timeTakesToLog = ((TickCount() - count) / (double)messages.count);
+    }
+#endif
 }
 
 - (void) loggingRoutine:(id) sender {
@@ -535,7 +608,7 @@ static LoggingManager * _defaultManager = nil;
                   @"Level parameter is out of range of valid levels.");
         }
         return [(LoggingLevelFilterOptions*)_levels isLogLevelEnabled:level];
-    } @catch (NSException * exc) {
+    } @catch (id exc) {
         if ( _throwExceptions ) {
             @throw exc;
         } else {
@@ -567,7 +640,7 @@ static LoggingManager * _defaultManager = nil;
             [self startLoggingThread]; // start if not started
             [self queueMessage:structure];
         }
-    } @catch (NSException * exc) {
+    } @catch (id exc) {
         if ( _throwExceptions ) {
             @throw exc;
         } else {

@@ -21,23 +21,6 @@
     targets.
  */
 @interface LoggingManager : NSObject<LoggerProxy> {
-    id _levels;
-    NSMutableDictionary * _targetsByName;
-    NSMutableDictionary * _targetsConfiguration;
-    NSMutableDictionary * _loggersByName;
-    NSMutableArray * _rules;
-    NSMutableArray * _providers;
-    NSMutableDictionary * _providersByName;
-    NSMutableArray * _messages;
-    NSThread * _loggingThread;
-    BOOL _loggingThreadSleeping;
-    BOOL _shouldLog;
-    BOOL _needsReconfiguration;
-    BOOL _needsRefreshProviders;
-    NSCondition * _loggingThreadCondition;
-    NSLock * _lock;
-    NSString * _levelsAsStrings[LogMessageLevelFatal + 1];
-    BOOL _throwExceptions;
 }
 
 /**

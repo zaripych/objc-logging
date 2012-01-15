@@ -24,6 +24,14 @@
 - (id) initWithPattern:(NSString*) pattern;
 
 /**
+    Checks if the pattern contains specified variable.
+
+    \param variableName Name of variable to check.
+*/
+- (BOOL) containsVariable:(NSString*) variableName;
+- (BOOL) containsOneOfVariables:(NSArray*) variableNames;
+
+/**
     Check if pattern contains variables which depend on thread static providers.
  */
 - (BOOL) containsThreadStaticVariables:(NSDictionary*) providersByVariables;

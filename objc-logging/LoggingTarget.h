@@ -22,3 +22,20 @@
 - (void) logMessage:(LogMessage*) message;
 
 @end
+
+/**
+    Can be implemented by target to be aware of current info providers and variables
+    calculated so far.
+*/
+@protocol LoggingInfoProvidersAware
+
+/**
+    Called from outside to inject additional information to the logging target.
+
+    \param providersByVariables Dictionary of providers which can be accessed by variable names
+    \param variableValues Dictionary of variables already calculated for the same message during logging
+*/
+- (void) useInfoProviders:(NSDictionary*)providersByVariables
+                withCache:(NSMutableDictionary*)variableValues;
+
+@end

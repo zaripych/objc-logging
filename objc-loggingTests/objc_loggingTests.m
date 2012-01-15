@@ -72,8 +72,12 @@
     //
     double logAverage = 0.0f;
     //
-    for (int i = 0; i < 1000; i ++ ) {
+    for (int i = 0; i < 100; i ++ ) {
         int level = LogMessageLevelMinimum + rand() % LogMessageLevelMaximum;
+        //
+        if ( [logger isWarningEnabled] ) {
+            [logger logWarning:@"There are some problem"];
+        }
         //
         BOOL logged = NO;
         UInt32 tickCountStart = TickCount();
@@ -104,9 +108,7 @@
     }
     //
     [NSThread sleepForTimeInterval:2];
-    //
-    NSLog(@"\nAverage ticks required for log* calls:%f\n", logAverage);
-    //
+    [manager resetConfiguration];
 }
 
 @end

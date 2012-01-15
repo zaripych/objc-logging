@@ -39,6 +39,9 @@
 		329B141914B3865F00AC4D92 /* LoggingTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B140014B3865F00AC4D92 /* LoggingTarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329B141A14B3865F00AC4D92 /* LoggingTargetOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B140114B3865F00AC4D92 /* LoggingTargetOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329B141B14B3865F00AC4D92 /* LoggingTargetOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B140214B3865F00AC4D92 /* LoggingTargetOptions.m */; };
+		329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D93 /* LoggingFileTarget.h */; };
+		329B141B14B3865F00AC4D96 /* LoggingFileTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D95 /* LoggingFileTarget.m */; };
+		329B141B14B3865F00AC4D99 /* LoggingFileTargetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 329B141B14B3865F00AC4D98 /* LoggingFileTargetTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,10 @@
 		329B140014B3865F00AC4D92 /* LoggingTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingTarget.h; sourceTree = "<group>"; };
 		329B140114B3865F00AC4D92 /* LoggingTargetOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingTargetOptions.h; sourceTree = "<group>"; };
 		329B140214B3865F00AC4D92 /* LoggingTargetOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingTargetOptions.m; sourceTree = "<group>"; };
+		329B141B14B3865F00AC4D93 /* LoggingFileTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingFileTarget.h; sourceTree = "<group>"; };
+		329B141B14B3865F00AC4D95 /* LoggingFileTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingFileTarget.m; sourceTree = "<group>"; };
+		329B141B14B3865F00AC4D97 /* LoggingFileTargetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingFileTargetTests.h; sourceTree = "<group>"; };
+		329B141B14B3865F00AC4D98 /* LoggingFileTargetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingFileTargetTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +164,8 @@
 		329B13C314B385C800AC4D92 /* objc-logging */ = {
 			isa = PBXGroup;
 			children = (
+				329B141B14B3865F00AC4D95 /* LoggingFileTarget.m */,
+				329B141B14B3865F00AC4D93 /* LoggingFileTarget.h */,
 				329B13EA14B3865F00AC4D92 /* Exceptions.h */,
 				329B13EB14B3865F00AC4D92 /* Exceptions.m */,
 				329B13EC14B3865F00AC4D92 /* Logger.h */,
@@ -200,6 +209,8 @@
 		329B13D914B385C900AC4D92 /* objc-loggingTests */ = {
 			isa = PBXGroup;
 			children = (
+				329B141B14B3865F00AC4D98 /* LoggingFileTargetTests.m */,
+				329B141B14B3865F00AC4D97 /* LoggingFileTargetTests.h */,
 				329B13DF14B385C900AC4D92 /* objc_loggingTests.h */,
 				329B13E014B385C900AC4D92 /* objc_loggingTests.m */,
 				329B13DA14B385C900AC4D92 /* Supporting Files */,
@@ -237,6 +248,7 @@
 				329B140A14B3865F00AC4D92 /* LoggingCompiledPattern.h in Headers */,
 				329B140E14B3865F00AC4D92 /* LoggingDefaultInfoProvider.h in Headers */,
 				329B141114B3865F00AC4D92 /* LoggingLevelFilterOptions.h in Headers */,
+				329B141B14B3865F00AC4D94 /* LoggingFileTarget.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +370,7 @@
 				329B141614B3865F00AC4D92 /* LoggingMessage.m in Sources */,
 				329B141814B3865F00AC4D92 /* LoggingRule.m in Sources */,
 				329B141B14B3865F00AC4D92 /* LoggingTargetOptions.m in Sources */,
+				329B141B14B3865F00AC4D96 /* LoggingFileTarget.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				329B13E114B385C900AC4D92 /* objc_loggingTests.m in Sources */,
+				329B141B14B3865F00AC4D99 /* LoggingFileTargetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +469,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
 				INFOPLIST_FILE = "objc-logging/objc-logging-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks//$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -469,6 +484,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "objc-logging/objc-logging-Prefix.pch";
 				INFOPLIST_FILE = "objc-logging/objc-logging-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks//$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
