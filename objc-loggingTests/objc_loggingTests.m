@@ -111,4 +111,65 @@
     [manager resetConfiguration];
 }
 
+
+// no special asserts here:
+- (void) testLogginUsingBlocks {
+    LoggingManager * manager = [LoggingManager defaultManager];
+    [manager resetConfiguration];
+    //
+    LoggingConsoleTarget * console = [[LoggingConsoleTarget alloc] init];
+    LoggingTargetOptions * consoleOptions = [[LoggingTargetOptions alloc] init];
+    consoleOptions.name = @"console";
+    consoleOptions.messagePattern = @"{level} {date:format=HH\\:mm\\:ss} {logger} {message}{end-of-line}";
+    //
+    LoggingBufferTarget * buffer = [[LoggingBufferTarget alloc] initWithMaximumSize:1024 * 10];
+    LoggingTargetOptions * bufferOptions = [[LoggingTargetOptions alloc] init];
+    bufferOptions.name = @"buffer";
+    bufferOptions.messagePattern = @"{level} {date:format=HH\\:mm\\:ss} {logger} {message}?{end-of-line}";
+    //
+    LoggingRule * rule = [[LoggingRule alloc] init];
+    rule.loggerNamePattern = @".*";
+    [rule.targetNames addObject:@"console"];
+    [rule.targetNames addObject:@"buffer"];
+    //
+    [manager addTarget:console 
+           withOptions:consoleOptions];
+    [manager addTarget:buffer 
+           withOptions:bufferOptions];
+    [manager addLoggingRule:rule];
+    [manager setMinimumLevel:LogMessageLevelTrace];
+    //
+    Logger * logger = [manager getLogger:@"AAA"];
+    //
+    for (int i = 0; i < 100; i ++ ) {
+        // blocks called only in case if logging is enabled
+        [logger logFatalUsingBlock:^(NSMutableString * message) {
+            // this part of code is evaluated only if Fatal level is enabled.
+            [message appendFormat:@"Hello there the world of %@", @"logs!"];
+        }];
+        // no need for [logger isErrorEnabled] call:
+        [logger logErrorUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello there the world of %@", @"logs!"];
+        }];
+        [logger logWarningUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello there the world of %@", @"logs!"];
+        }];
+        [logger logDebugUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello there the world of %@", @"logs!"];
+        }];
+        [logger logTraceUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello there the world of %@", @"logs!"];
+        }];
+        // closure:
+        int test_me = 0;
+        [logger logTraceUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello from closure: %d", test_me];
+        }];
+    }
+    //
+    [NSThread sleepForTimeInterval:2];
+    [manager resetConfiguration];
+}
+
+
 @end

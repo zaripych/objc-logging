@@ -67,6 +67,19 @@
     }
 }
 
+- (void) logWithLevel:(enum LogMessageLevel)level 
+             andBlock:(LoggerBlock)callback {
+    if ( [_proxy isLogLevelEnabled:level] ) {
+        NSMutableString * mutableString = [[NSMutableString alloc] init];
+        callback(mutableString);
+        if ( mutableString.length != 0 ) {
+            [_proxy log:self
+             withLevel:level 
+             andMessage:mutableString];
+        }
+    }
+}
+
 - (void) logInfo:(NSString*) message, ... {
     va_list list;
     va_start(list, message);
@@ -77,6 +90,11 @@
     @finally {
         va_end(list);
     }
+}
+
+- (void) logInfoUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelInfo 
+              andBlock:callback];
 }
 
 - (void) logDebug:(NSString*) message, ... {
@@ -91,6 +109,11 @@
     }
 }
 
+- (void) logDebugUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelDebug 
+              andBlock:callback];
+}
+
 - (void) logTrace:(NSString*) message, ... {
     va_list list;
     va_start(list, message);
@@ -101,6 +124,11 @@
     @finally {
         va_end(list);
     }
+}
+
+- (void) logTraceUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelTrace 
+              andBlock:callback];
 }
 
 - (void) logWarning:(NSString*) message, ... {
@@ -115,6 +143,11 @@
     }
 }
 
+- (void) logWarningUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelWarning
+              andBlock:callback];
+}
+
 - (void) logError:(NSString*) message, ... {
     va_list list;
     va_start(list, message);
@@ -127,6 +160,11 @@
     }
 }
 
+- (void) logErrorUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelError
+              andBlock:callback];
+}
+
 - (void) logFatal:(NSString*) message, ... {
     va_list list;
     va_start(list, message);
@@ -137,6 +175,11 @@
     @finally {
         va_end(list);
     }
+}
+
+- (void) logFatalUsingBlock:(LoggerBlock)callback {
+    [self logWithLevel:LogMessageLevelFatal
+              andBlock:callback];
 }
 
 @end
