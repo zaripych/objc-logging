@@ -102,6 +102,11 @@
     NSString * outputFileName = [_pattern buildMessageUsingProviders:_providersByVariableNames
                                                         andVariables:_variableValues
                                                           andMessage:message];
+    //
+    NSRange range = [outputFileName rangeOfString:@"~"];
+    if ( range.length > 0 && range.location == 0 ) {
+        outputFileName = [outputFileName stringByExpandingTildeInPath];
+    }
     // if specified file is set to be redirected?
     NSString * redirectToFileName = [_filesRedirection objectForKey:outputFileName];
     if ( redirectToFileName != nil ) {

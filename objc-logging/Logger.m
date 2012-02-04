@@ -60,7 +60,7 @@
     @try {
         [_proxy log:self
           withLevel:level 
-         andMessage:[[NSString alloc] initWithFormat:message, list]];
+         andMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -72,7 +72,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelInfo 
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -84,7 +84,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelDebug 
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -96,7 +96,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelTrace
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -108,7 +108,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelWarning
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -120,7 +120,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelError
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
@@ -132,7 +132,7 @@
     va_start(list, message);
     @try {
         [self logWithLevel:LogMessageLevelFatal
-            andOnlyMessage:[[NSString alloc] initWithFormat:message, list]];
+            andOnlyMessage:[[NSString alloc] initWithFormat:message arguments:list]];
     }
     @finally {
         va_end(list);
