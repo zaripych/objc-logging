@@ -107,5 +107,12 @@ Next sample is file output:
             [logger logInfo:@"Hello there! %@", @"This is parameter"];
         }
     }
+
+    - (void) someMethodWithBlocks {
+        [logger logInfoUsingBlock:^(NSMutableString * message) {
+            [message appendFormat:@"Hello there! %@", @"This is blocks logging interface."];
+        }];
+    }
+
     
 Good luck!
